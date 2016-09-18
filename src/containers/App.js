@@ -79,8 +79,9 @@ var styles = StyleSheet.create({
     flexDirection: 'column',
   },
   summary: {
-    fontFamily: 'AvenirNext',
-    fontSize: 18,
+    fontFamily: 'AvenirNext-Bold',
+    color: '#333333',
+    fontSize: 18
   }
 })
 
