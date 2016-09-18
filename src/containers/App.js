@@ -30,7 +30,9 @@ import
 {
     StyleSheet,
     View,
-    Text
+    Text,
+    Image,
+    TouchableHighlight
 }
 from 'react-native'
 
@@ -68,15 +70,17 @@ function mapDispatchToProps (dispatch) {
 
 var styles = StyleSheet.create({
   container: {
-    borderTopWidth: 2,
-    borderBottomWidth: 2,
-    marginTop: 80,
-    padding: 10
+    flex: 1,
+    width: undefined,
+    height: undefined,
+    backgroundColor:'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
   },
   summary: {
-    fontFamily: 'BodoniSvtyTwoITCTT-Book',
+    fontFamily: 'AvenirNext',
     fontSize: 18,
-    fontWeight: 'bold'
   }
 })
 
@@ -103,25 +107,57 @@ let App = React.createClass({
             () => {
               this.props.actions.getSessionToken()
             },
-            2500
+            100000
         )
   },
 
   render () {
     return (
-      <View style={styles.container}>
-        <Header isFetching={this.props.auth.form.isFetching}
+        <Image source={require('../images/backgroundPattern.png')}
+                  resizeMode='cover'
+                  style={styles.container}
+                  >
+ 
+                  <TouchableHighlight style={styles.mark} onPress={this._onPressMark}>
+                    <Image  
+                      source={require('../images/logo.png')}
+                    >
+                    </Image>
+                  </TouchableHighlight>
+                    {this.props.isFetching
+                     ? <ActivityIndicator animating size='large' />
+                     : null
+                  }
+                  {this.props.showState ? 
+                    <View>
+                      <Text>{I18n.t('Header.current_state')} ({I18n.t('Header.see_console')})</Text>
+                      <TextInput style={{height: 100, borderColor: 'gray', borderWidth: 1}}
+                       value={displayText}
+                       editable
+                       multiline
+                       onChangeText={(text) => this._onChangeText(text)}
+                       numberOfLines={20} />
+                     
+                       <FormButton isDisabled={this.state.isDisabled}
+                         onPress={this._updateStateButtonPress}
+                         buttonText={I18n.t('Header.update_state')} />
+                  
+                     </View>
+                  : null}
+                  <Text style={styles.summary}> Selfy {I18n.t('App.version')}: {this.props.deviceVersion}</Text>
+
+          </Image>
+    )
+  }
+})
+/* removed part
+
+<Header isFetching={this.props.auth.form.isFetching}
           showState={this.props.global.showState}
           currentState={this.props.global.currentState}
           onGetState={this.props.actions.getState}
           onSetState={this.props.actions.setState} />
-
-        <Text style={styles.summary}>Snowflake {I18n.t('App.version')}:{this.props.deviceVersion}</Text>
-
-      </View>
-    )
-  }
-})
+*/
 // Since we're using ES6 classes, have to define the TimerMixin
 reactMixin(App.prototype, TimerMixin)
 /**
