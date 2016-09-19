@@ -14,7 +14,7 @@ import SwipeCards from './SwipeCards';
 let Card = React.createClass({
   render() {
     return (
-      <View style={styles.card}>
+      <View style={styles.card}  elevation={5}>
         <Image style={styles.thumbnail} source={{uri: this.props.image}} />
         <Text style={styles.text}>This is card {this.props.name}</Text>
       </View>
@@ -50,13 +50,20 @@ const Cards2 = [
 
 var styles = StyleSheet.create({
   card: {
-    alignItems: 'center',
+    padding: 10,
     borderRadius: 5,
+    shadowColor: "#000000",
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
+    shadowOffset: {
+      height: 5,
+      width: 2
+    },
+    alignItems: 'center',
     overflow: 'hidden',
     borderColor: 'grey',
     backgroundColor: 'white',
-    borderWidth: 1,
-    elevation: 1,
+    elevation: 5,
   },
   thumbnail: {
     flex: 1,

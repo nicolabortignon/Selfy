@@ -18,14 +18,27 @@ var SWIPE_THRESHOLD = 120;
 
 // Base Styles. Use props to override these values
 var styles = StyleSheet.create({
+    blurContainer: {
+      flex: 1,
+      width: undefined,
+      height: undefined,
+      backgroundColor:'transparent',
+      flexDirection: 'column',
+    },
+    containerStyle: {
+      backgroundColor: 'rgba(255,255,255,.2)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: undefined,
+      flexDirection: 'column',
+      flex: 1,
+    },
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF'
+        alignItems: 'center', 
     },
     yup: {
-
         position: 'absolute',
         padding: 20,
         bottom: 20,
@@ -167,7 +180,7 @@ class SwipeCards extends Component {
   }
 
   render() {
-    let { pan, enter, } = this.state;
+    let { pan, enter } = this.state;
 
     let [translateX, translateY] = [pan.x, pan.y];
 
@@ -178,15 +191,19 @@ class SwipeCards extends Component {
     let animatedCardstyles = {transform: [{translateX}, {translateY}, {rotate}, {scale}], opacity};
 
     let yupOpacity = pan.x.interpolate({inputRange: [0, 150], outputRange: [0, 1]});
-    let yupScale = pan.x.interpolate({inputRange: [0, 150], outputRange: [0.5, 1], extrapolate: 'clamp'});
-    let animatedYupStyles = {transform: [{scale: yupScale}], opacity: yupOpacity}
+    let yupScale = pan.x.interpolate({inputRange: [0, 150], outputRange: [1, 1.1], extrapolate: 'clamp'});
+    let animatedYupStyles = {transform: [{scale: yupScale}]}
 
     let nopeOpacity = pan.x.interpolate({inputRange: [-150, 0], outputRange: [1, 0]});
-    let nopeScale = pan.x.interpolate({inputRange: [-150, 0], outputRange: [1, 0.5], extrapolate: 'clamp'});
-    let animatedNopeStyles = {transform: [{scale: nopeScale}], opacity: nopeOpacity}
+    let nopeScale = pan.x.interpolate({inputRange: [-150, 0], outputRange: [1.1, 1], extrapolate: 'clamp'});
+    let animatedNopeStyles = {transform: [{scale: nopeScale}]}
 
         return (
-            <View style={this.props.containerStyle}>
+          <Image blurRadius={25} source={{uri: this.state.card.image}} 
+                  resizeMode='cover'
+                  style={styles.blurContainer}
+                  >
+            <View style={styles.containerStyle}>
                 { this.state.card
                     ? (
                     <Animated.View style={[this.props.cardStyle, animatedCardstyles]} {...this._panResponder.panHandlers}>
@@ -229,6 +246,8 @@ class SwipeCards extends Component {
                 }
 
             </View>
+          </Image>
+
     );
   }
 }
