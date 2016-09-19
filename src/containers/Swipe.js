@@ -111,14 +111,14 @@ class Swipe extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <View>
+  
           
           <Button style={styles.button} >
              SWIPE PAGE
           </Button>
           <Cards style={{flex: 1}} />
 
-        </View>
+      
       </View>
     )
   }

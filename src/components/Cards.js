@@ -68,11 +68,45 @@ var styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10
   },
+  containerStyle:{
+    backgroundColor: 'transparent',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
   noMoreCards: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  yup: {
+    borderWidth: 0,
+    position: 'absolute',
+    padding: 20,
+    bottom: 20,
+    borderRadius: 5,
+    right: 20,
+  },
+  yupText: {
+    fontSize: 36,
+    color: '#000000',
+    fontFamily: 'AvenirNext-Bold',
+  },
+  nope: {   
+    borderWidth: 0,
+    position: 'absolute',
+    bottom: 20,
+    padding: 20,
+    borderRadius: 5,
+    left: 20,
+  },
+  nopeText: {
+    fontFamily: 'AvenirNext-Bold',
+    fontSize: 36,
+    color: '#000000',
   }
+
 })
 
 var Cards = React.createClass({
@@ -113,12 +147,17 @@ var Cards = React.createClass({
       <SwipeCards
         cards={this.state.cards}
         loop={false}
-
+        yupStyle={styles.yup}
+        nopeStyle={styles.nope}
+        yupTextStyle={styles.yupText}
+        nopeTextStyle={styles.nopeText}
+        containerStyle={styles.containerStyle}
         renderCard={(cardData) => <Card {...cardData} />}
         renderNoMoreCards={() => <NoMoreCards />}
         showYup={true}
         showNope={true}
-
+        yupText={'Yup'}
+        noText={'Nop'}
         handleYup={this.handleYup}
         handleNope={this.handleNope}
         cardRemoved={this.cardRemoved}
