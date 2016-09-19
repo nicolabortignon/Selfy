@@ -108,7 +108,7 @@ let App = React.createClass({
             () => {
               this.props.actions.getSessionToken()
             },
-            100000
+            1000
         )
   },
 

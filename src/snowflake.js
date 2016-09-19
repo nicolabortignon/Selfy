@@ -70,6 +70,7 @@ import ForgotPassword from './containers/ForgotPassword'
 import Profile from './containers/Profile'
 import Main from './containers/Main'
 import Subview from './containers/Subview'
+import Swipe from './containers/Swipe'
 
 /**
  * ### icons
@@ -174,7 +175,7 @@ export default function native (platform) {
                 initial />
 
               <Scene key='InitialLoginForm'
-                component={Register}
+                component={Swipe}
                 type='replace' />
 
               <Scene key='Login'
