@@ -205,6 +205,12 @@ export default function native (platform) {
                   iconName={"sign-out"}
                   hideNavBar
                   component={Logout} />
+                <Scene key='Swipe'
+                  title={'Swipe'}
+                  icon={TabIcon}
+                  iconName={"sign-out"}
+                  hideNavBar
+                  component={Swipe} />
 
                 <Scene key='Main'
                   title={I18n.t('Snowflake.main')}
