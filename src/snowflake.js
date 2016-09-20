@@ -174,7 +174,7 @@ export default function native (platform) {
                 type='replace'
                 initial />
 
-              <Scene key='InitialLoginForm'
+              <Scene key='Tabber'
                 component={Swipe}
                 type='replace' />
 
@@ -193,7 +193,7 @@ export default function native (platform) {
               <Scene key='Subview'
                 component={Subview} />
 
-              <Scene key='Tabbar'
+              <Scene key='InitialLoginForm'
                 tabs
                 hideNavBar
                 tabBarStyle={styles.tabBar}

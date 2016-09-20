@@ -11,7 +11,7 @@
  */
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-
+import Drawer from 'react-native-drawer'
 /**
  * The actions we need
  */
@@ -27,7 +27,7 @@ import {Actions} from 'react-native-router-flux'
  * The Header will display a Image and support Hot Loading
  */
 import Header from '../components/Header'
-
+import ControlPanel from '../components/ControlPanel'
 /**
  * The components needed from React
  */
@@ -35,7 +35,8 @@ import React, {Component} from 'react'
 import
 {
   StyleSheet,
-  View
+  View,
+  Text
 }
 from 'react-native'
 
@@ -102,14 +103,33 @@ I18n.translations = Translations
 class Main extends Component {
 
   handlePress () {
+    this._drawer.open()
+    /*
     Actions.Subview({
       title: 'Subview'
       // you can add additional props to be passed to Subview here...
-    })
+    })*/
   }
 
+  closeControlPanel = () => {
+    this._drawer.close()
+  };
+  openControlPanel = () => {
+    this._drawer.open()
+  };
+
   render () {
-    return (
+    return ( 
+      <Drawer
+      type="static"
+      ref={(ref) => this._drawer = ref}
+        content={
+        <ControlPanel closeDrawer={this.closeControlPanel} />
+         }
+         styles={{main: {shadowColor: '#000000', shadowOpacity: 0.3, shadowRadius: 15}}}
+          openDrawerOffset={100}
+          tweenHandler={Drawer.tweenPresets.parallax}
+      >
       <View style={styles.container}>
         <View>
           <Header isFetching={this.props.auth.form.isFetching}
@@ -121,8 +141,13 @@ class Main extends Component {
           <Button style={styles.button} onPress={this.handlePress.bind(this)}>
            {I18n.t('Main.navigate')}
           </Button>
+
+
+        
+          <Text> SWIPE AREA </Text>
         </View>
-      </View>
+      </View> 
+     </Drawer>
     )
   }
 };
