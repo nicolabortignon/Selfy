@@ -114,6 +114,7 @@ let App = React.createClass({
 
   render () {
     return (
+      
         <Image source={require('../images/backgroundPattern.png')}
                   resizeMode='cover'
                   style={styles.container}

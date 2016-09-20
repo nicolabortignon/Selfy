@@ -14,7 +14,7 @@ import {
 
 import clamp from 'clamp';
 
-var SWIPE_THRESHOLD = 120;
+var SWIPE_THRESHOLD = 50;
 
 // Base Styles. Use props to override these values
 var styles = StyleSheet.create({
@@ -97,7 +97,7 @@ class SwipeCards extends Component {
   _animateEntrance() {
     Animated.spring(
       this.state.enter,
-      { toValue: 1, friction: 8 }
+      { toValue: 1, friction: 5 }
     ).start();
   }
 
@@ -152,7 +152,7 @@ class SwipeCards extends Component {
         } else {
           Animated.spring(this.state.pan, {
             toValue: {x: 0, y: 0},
-            friction: 4
+            friction: 2
           }).start()
         }
       }

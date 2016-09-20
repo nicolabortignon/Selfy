@@ -11,6 +11,7 @@
  */
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import Drawer from 'react-native-drawer'
 
 /**
  * The actions we need
@@ -23,10 +24,8 @@ import Cards from '../components/Cards';
  */
 import {Actions} from 'react-native-router-flux'
 
-/**
- * The Header will display a Image and support Hot Loading
- */
-import Header from '../components/Header'
+ 
+import ControlPanel from '../components/ControlPanel'
 
 /**
  * The components needed from React
@@ -73,6 +72,7 @@ function mapDispatchToProps (dispatch) {
 }
 
 var styles = StyleSheet.create({
+
   container: {
     flexDirection: 'column',
     flex: 1
@@ -85,8 +85,9 @@ var styles = StyleSheet.create({
   button: {
     backgroundColor: '#FF3366',
     borderColor: '#FF3366',
-    marginLeft: 10,
-    marginRight: 10
+    top: 30,
+    left: 20,
+    position: 'absolute'
   }
 })
 /**
@@ -102,24 +103,42 @@ I18n.translations = Translations
 class Swipe extends Component {
 
   handlePress () {
+    this._drawer.open()
+    /*
     Actions.Subview({
       title: 'Subview'
       // you can add additional props to be passed to Subview here...
-    })
+    })*/
   }
+
+  closeControlPanel = () => {
+    this._drawer.close()
+  };
+  openControlPanel = () => {
+    this._drawer.open()
+  };
 
   render () {
     return (
+       <Drawer
+        type="static"
+        ref={(ref) => this._drawer = ref}
+          closedDrawerOffset={-3}
+          styles={{main: {shadowColor: '#000000', shadowOpacity: 0.1, shadowRadius: 15}}}
+            openDrawerOffset={100}
+            tweenHandler={Drawer.tweenPresets.parallax}
+          content={
+            <ControlPanel closeDrawer={this.closeControlPanel} />
+          }  
+        >
       <View style={styles.container}>
-  
-          
-          <Button style={styles.button} >
-             SWIPE PAGE
-          </Button>
+           
           <Cards style={{flex: 1}} />
-
-      
+          <Button style={styles.button} onPress={this.handlePress.bind(this)}>
+             Open Menu
+          </Button>
       </View>
+      </Drawer>
     )
   }
 };

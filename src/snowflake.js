@@ -168,66 +168,44 @@ export default function native (platform) {
 
         <Provider store={store}>
           <Router sceneStyle={{ backgroundColor: 'white' }}>
-            <Scene key='root' hideNavBar>
+       
               <Scene key='App'
                 component={App}
                 type='replace'
+                default='Main'
+                hideNavBar
                 initial />
 
-              <Scene key='Tabber'
-                component={Swipe}
-                type='replace' />
-
-              <Scene key='Login'
-                component={Login}
-                type='replace' />
-
-              <Scene key='Register'
-                component={Register}
-                type='replace' />
-
-              <Scene key='ForgotPassword'
-                component={ForgotPassword}
-                type='replace' />
-
-              <Scene key='Subview'
-                component={Subview} />
-
-              <Scene key='InitialLoginForm'
-                tabs
+              <Scene key='Logout'
+                title={I18n.t('Snowflake.logout')}
+                icon={TabIcon}
+                iconName={"sign-out"}
                 hideNavBar
-                tabBarStyle={styles.tabBar}
-                default='Main'>
+                component={Logout} />
 
-                <Scene key='Logout'
-                  title={I18n.t('Snowflake.logout')}
-                  icon={TabIcon}
-                  iconName={"sign-out"}
-                  hideNavBar
-                  component={Logout} />
-                <Scene key='Swipe'
-                  title={'Swipe'}
-                  icon={TabIcon}
-                  iconName={"sign-out"}
-                  hideNavBar
-                  component={Swipe} />
+              <Scene key='Swipe'
+                title={'Swipe'}
+                icon={TabIcon}
+                iconName={"sign-out"}
+                hideNavBar
+                component={Swipe} 
+                initial/>
 
-                <Scene key='Main'
-                  title={I18n.t('Snowflake.main')}
-                  iconName={"home"}
-                  icon={TabIcon}
-                  hideNavBar
-                  component={Main}
-                  initial />
+              <Scene key='Main'
+                title={I18n.t('Snowflake.main')}
+                iconName={"home"}
+                icon={TabIcon}
+ 
+                component={Main}
+                />
 
-                <Scene key='Profile'
-                  title={I18n.t('Snowflake.profile')}
-                  icon={TabIcon}
-                  iconName={"gear"}
-                  hideNavBar
-                  component={Profile} />
-              </Scene>
-            </Scene>
+              <Scene key='Profile'
+                title={I18n.t('Snowflake.profile')}
+                icon={TabIcon}
+                iconName={"gear"}
+                hideNavBar
+                component={Profile} />
+            
           </Router>
         </Provider>
       )

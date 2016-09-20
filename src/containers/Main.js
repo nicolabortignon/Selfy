@@ -123,33 +123,26 @@ class Main extends Component {
 
   render () {
     return ( 
-      <Drawer
+        <Drawer
         type="static"
         ref={(ref) => this._drawer = ref}
           closedDrawerOffset={-3}
           styles={{main: {shadowColor: '#000000', shadowOpacity: 0.3, shadowRadius: 15}}}
-           tweenHandler={Drawer.tweenPresets.parallax}
-
-
-        content={
-        <ControlPanel closeDrawer={this.closeControlPanel} />
-         }  
-      >
+          tweenHandler={Drawer.tweenPresets.parallax}
+          content={
+            <ControlPanel closeDrawer={this.closeControlPanel} />
+          }  
+        >
       <View style={styles.container}>
         <View>
-          <Header isFetching={this.props.auth.form.isFetching}
-            showState={this.props.global.showState}
-            currentState={this.props.global.currentState}
-            onGetState={this.props.actions.getState}
-            onSetState={this.props.actions.setState} />
-
+ 
           <Button style={styles.button} onPress={this.handlePress.bind(this)}>
-           {I18n.t('Main.navigate')}
+           {'Open Menu'}
           </Button>
 
 
         
-          <Text> SWIPE AREA </Text>
+          <Text> Main Page AREA </Text>
         </View>
       </View> 
      </Drawer>
