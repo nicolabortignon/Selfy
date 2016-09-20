@@ -121,14 +121,18 @@ class Main extends Component {
   render () {
     return ( 
       <Drawer
-      type="static"
-      ref={(ref) => this._drawer = ref}
+        type="static"
+        ref={(ref) => this._drawer = ref}
+          openDrawerOffset={0.2} // 20% gap on the right side of drawer
+          panCloseMask={0.2}
+          closedDrawerOffset={-3}
+          styles={{main: {shadowColor: '#000000', shadowOpacity: 0.3, shadowRadius: 15}}}
+           tweenHandler={Drawer.tweenPresets.parallax}
+
+
         content={
         <ControlPanel closeDrawer={this.closeControlPanel} />
-         }
-         styles={{main: {shadowColor: '#000000', shadowOpacity: 0.3, shadowRadius: 15}}}
-          openDrawerOffset={100}
-          tweenHandler={Drawer.tweenPresets.parallax}
+         }  
       >
       <View style={styles.container}>
         <View>
