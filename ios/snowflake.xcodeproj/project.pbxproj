@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -23,7 +24,6 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		166AC0BD27C0446FA6FF8B31 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8803C669FD9B47E79EAAE9DD /* Entypo.ttf */; };
 		26D952642DF74D65B81C68DB /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC35DAA47F4148D58E08B20B /* Octicons.ttf */; };
-		53BA9EED97844C0788494EB1 /* libRNBlur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5A2BBD38AF473F8982F9FD /* libRNBlur.a */; };
 		5831F9276B0B4F3E8834529B /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1322AC77C46403CB5D6F353 /* FontAwesome.ttf */; };
 		5C69ADB01D8DD5C700F88704 /* AvenirNext.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C69ADAF1D8DD5C700F88704 /* AvenirNext.ttf */; };
 		69C576D689E240DEB0789BC8 /* libRNI18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA2328395E04F33968D1603 /* libRNI18n.a */; };
@@ -178,7 +178,6 @@
 		D7DF56CC491D48C5B76A89E6 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		DC35DAA47F4148D58E08B20B /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		E8FB7D755BDD478A96EEEAAF /* RNI18n.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNI18n.xcodeproj; path = "../node_modules/react-native-i18n/RNI18n.xcodeproj"; sourceTree = "<group>"; };
-		EF5A2BBD38AF473F8982F9FD /* libRNBlur.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNBlur.a; sourceTree = "<group>"; };
 		F1322AC77C46403CB5D6F353 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		FFB30DBF3CF84D3A8E7096B7 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,7 +207,6 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				69C576D689E240DEB0789BC8 /* libRNI18n.a in Frameworks */,
 				B65E7ACF9E8E4CB395A84872 /* libRNVectorIcons.a in Frameworks */,
-				53BA9EED97844C0788494EB1 /* libRNBlur.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +458,9 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = M7ME2TS45S;
 					};
 				};
 			};
@@ -768,6 +769,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
@@ -786,6 +789,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = snowflake;
+				PROVISIONING_PROFILE = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -794,6 +798,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -811,6 +817,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = snowflake;
+				PROVISIONING_PROFILE = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
