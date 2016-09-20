@@ -42,10 +42,10 @@ const CardsArray = [
 ]
 
 const Cards2 = [
-  {name: '10', image: 'https://pbs.twimg.com/profile_images/3529593139/f8dc5d8b3a7d6778ab2a06e06d4ccc7a_400x400.jpeg'},
-  {name: '11', image: 'https://pbs.twimg.com/profile_images/3529593139/f8dc5d8b3a7d6778ab2a06e06d4ccc7a_400x400.jpeg'},
-  {name: '12', image: 'https://pbs.twimg.com/profile_images/3529593139/f8dc5d8b3a7d6778ab2a06e06d4ccc7a_400x400.jpeg'},
-  {name: '13', image: 'https://pbs.twimg.com/profile_images/3529593139/f8dc5d8b3a7d6778ab2a06e06d4ccc7a_400x400.jpeg'},
+  {name: '10', image: 'http://www.golden-retriever.com/wp-content/uploads/2015/06/cute-golden-retriever-happy-puppies.jpg'},
+  {name: '11', image: 'https://barkpost.com/wp-content/uploads/2014/05/6gold2-600x388.jpg'},
+  {name: '12', image: 'https://s-media-cache-ak0.pinimg.com/564x/4e/d3/66/4ed366b268b317276fcf5622059ce205.jpg'},
+  {name: '13', image: 'https://s-media-cache-ak0.pinimg.com/564x/cb/c5/8e/cbc58e5e1b368c69fc812d93a40824e7.jpg'},
 ]
 
 var styles = StyleSheet.create({
@@ -90,6 +90,7 @@ var styles = StyleSheet.create({
   
 
 })
+
 
 var Cards = React.createClass({
   getInitialState() {
