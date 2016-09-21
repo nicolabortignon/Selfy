@@ -108,14 +108,15 @@ let App = React.createClass({
             () => {
               this.props.actions.getSessionToken()
             },
-            1000
+            100000
         )
   },
 
   render () {
     return (
       
-        <Image source={require('../images/backgroundPattern.png')}
+
+                <Image source={require('../images/backgroundPattern.png')}
                   resizeMode='cover'
                   style={styles.container}
                   >

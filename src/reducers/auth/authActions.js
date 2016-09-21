@@ -243,14 +243,14 @@ export function getSessionToken () {
           Actions.Tabbar()
         } else {
           dispatch(sessionTokenRequestFailure())
-          Actions.InitialLoginForm()
+          Actions.Swipe()
         }
       })
 
       .catch((error) => {
         dispatch(sessionTokenRequestFailure(error))
         dispatch(loginState())
-        Actions.InitialLoginForm()
+        Actions.Swipe()
       })
   }
 }

@@ -18,7 +18,7 @@ import {
     AppRegistry,
     StyleSheet,
     View,
-    Text } from 'react-native'
+    Text } from 'react-native' 
 
 /**
  * ### Router-Flux
@@ -152,8 +152,12 @@ class TabIcon extends React.Component {
  */
 
 export default function native (platform) {
+
   let Snowflake = React.createClass({
+
     render () {
+        
+
       const store = configureStore(getInitialState())
 
             // configureStore will combine reducers from snowflake and main application
@@ -169,43 +173,40 @@ export default function native (platform) {
         <Provider store={store}>
           <Router sceneStyle={{ backgroundColor: 'white' }}>
        
-              <Scene key='App'
-                component={App}
-                type='replace'
-                default='Main'
-                hideNavBar
-                initial />
-
-              <Scene key='Logout'
-                title={I18n.t('Snowflake.logout')}
-                icon={TabIcon}
-                iconName={"sign-out"}
-                hideNavBar
-                component={Logout} />
-
-              <Scene key='Swipe'
-                title={'Swipe'}
-                icon={TabIcon}
-                iconName={"sign-out"}
-                hideNavBar
-                component={Swipe} 
-                initial/>
-
               <Scene key='Main'
-                title={I18n.t('Snowflake.main')}
-                iconName={"home"}
-                icon={TabIcon}
- 
                 component={Main}
-                />
+                hideNavBar={true}
+                type={'replace'}
+                >
+                  <Scene key="Wrapper">
+                    <Scene key='Logout'
+                      title={I18n.t('Snowflake.logout')}
+                      iconName={"sign-out"}
+                      hideNavBar
+                      component={Logout} />
+                    <Scene key='App'
+                      title={I18n.t('Snowflake.logout')}
+                      iconName={"sign-out"}
+                      hideNavBar
+                      initial
+                      component={App} />
 
-              <Scene key='Profile'
-                title={I18n.t('Snowflake.profile')}
-                icon={TabIcon}
-                iconName={"gear"}
-                hideNavBar
-                component={Profile} />
-            
+                    <Scene key='Swipe'
+                      title={'Swipe'}
+                      icon={TabIcon}
+                      iconName={"sign-out"}
+                      hideNavBar
+                      component={Swipe} 
+                    />
+
+                    <Scene key='Profile'
+                      title={I18n.t('Snowflake.profile')}
+                      icon={TabIcon}
+                      iconName={"gear"}
+                      hideNavBar
+                      component={Profile} />
+                  </Scene>
+                </Scene>
           </Router>
         </Provider>
       )

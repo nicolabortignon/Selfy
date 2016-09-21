@@ -40,6 +40,15 @@ export default class ControlPanel extends Component {
         <TouchableOpacity style={styles.button} onPress={closeDrawer}>
           <Text>Close Drawer</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={closeDrawer}>
+          <Text>Go to Swipe</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={closeDrawer}>
+          <Text>Upload Selfie</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={closeDrawer}>
+          <Text>Your Profile</Text>
+        </TouchableOpacity>
       </ScrollView>
     )
   }

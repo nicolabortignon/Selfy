@@ -17,7 +17,7 @@ import Drawer from 'react-native-drawer'
  */
 import * as authActions from '../reducers/auth/authActions'
 import * as globalActions from '../reducers/global/globalActions'
-
+import {DefaultRenderer} from 'react-native-router-flux';
 /**
  * Router
  */
@@ -122,6 +122,8 @@ class Main extends Component {
   };
 
   render () {
+    const state = this.props.navigationState;
+    const children = state.children;
     return ( 
         <Drawer
         type="static"
@@ -133,19 +135,8 @@ class Main extends Component {
             <ControlPanel closeDrawer={this.closeControlPanel} />
           }  
         >
-      <View style={styles.container}>
-        <View>
- 
-          <Button style={styles.button} onPress={this.handlePress.bind(this)}>
-           {'Open Menu'}
-          </Button>
-
-
-        
-          <Text> Main Page AREA </Text>
-        </View>
-      </View> 
-     </Drawer>
+          <DefaultRenderer navigationState={children[0]} onNavigate={this.props.onNavigate}/>
+       </Drawer>
     )
   }
 };
