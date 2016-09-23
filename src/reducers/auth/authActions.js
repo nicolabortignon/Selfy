@@ -233,7 +233,25 @@ export function deleteSessionToken () {
  */
 export function getSessionToken () {
   return dispatch => {
-    Actions.Swipe()
+    dispatch(sessionTokenRequest())
+    return new AppAuthToken().getSessionToken()
+
+      .then((token) => {
+        if (token) {
+          dispatch(sessionTokenRequestSuccess(token))
+          dispatch(logoutState())
+          Actions.Tabbar()
+        } else {
+          dispatch(sessionTokenRequestFailure())
+          Actions.Swipe()
+        }
+      })
+
+      .catch((error) => {
+        dispatch(sessionTokenRequestFailure(error))
+        dispatch(loginState())
+        Actions.Swipe()
+      })
   }
 }
 
