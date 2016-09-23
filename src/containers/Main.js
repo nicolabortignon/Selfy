@@ -104,6 +104,16 @@ I18n.translations = Translations
  * ## App class
  */
 class Main extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {open: true};
+
+    // Toggle the state every second
+    setInterval(() => {
+      this.setState({ open: !this.state.open });
+    }, 1000);
+  }
+
 
   handlePress () {
     this._drawer.open()
@@ -126,14 +136,14 @@ class Main extends Component {
     const children = state.children;
     return ( 
         <Drawer
+        open={this.state.open}
         type="static"
-        ref={(ref) => this._drawer = ref}
-          closedDrawerOffset={-3}
-          styles={{main: {shadowColor: '#000000', shadowOpacity: 0.3, shadowRadius: 15}}}
-          tweenHandler={Drawer.tweenPresets.parallax}
-          content={
-            <ControlPanel closeDrawer={this.closeControlPanel} />
-          }  
+        ref={(ref) => this._drawer = ref}  
+        styles={{main: {shadowColor: '#000000', shadowOpacity: 0.3, shadowRadius: 15}}}
+        tweenHandler={Drawer.tweenPresets.parallax}
+        content={
+          <ControlPanel closeDrawer={this.closeControlPanel} />
+        }  
         >
           <DefaultRenderer navigationState={children[0]} onNavigate={this.props.onNavigate}/>
        </Drawer>
