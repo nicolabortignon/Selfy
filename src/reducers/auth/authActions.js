@@ -243,14 +243,14 @@ export function getSessionToken () {
           Actions.Tabbar()
         } else {
           dispatch(sessionTokenRequestFailure())
-          Actions.Swipe()
+          Actions.UploadSelfie()
         }
       })
 
       .catch((error) => {
         dispatch(sessionTokenRequestFailure(error))
         dispatch(loginState())
-        Actions.Swipe()
+        Actions.UploadSelfie()
       })
   }
 }

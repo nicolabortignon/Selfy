@@ -35,9 +35,20 @@ import
 {
   StyleSheet,
   View,
-  Text
+  Text,
+  Image
 }
 from 'react-native'
+
+var Platform = require('react-native').Platform;
+var ImagePicker = require('react-native-image-picker');
+var options = {
+  title: 'Let\'s take a Selfy',
+  storageOptions: {
+    skipBackup: true,
+    path: 'images'
+  }
+};
 
 /**
  * The platform neutral button
@@ -59,7 +70,8 @@ function mapStateToProps (state) {
     global: {
       currentState: state.global.currentState,
       showState: state.global.showState
-    }
+    },
+    avatarSource: 'test'
   }
 };
 
@@ -76,7 +88,9 @@ var styles = StyleSheet.create({
 
   container: {
     flexDirection: 'column',
-    flex: 1
+    alignItems:'center',
+    justifyContent:'center',
+    flex: 1, 
   },
   summary: {
     fontFamily: 'BodoniSvtyTwoITCTT-Book',
@@ -89,6 +103,20 @@ var styles = StyleSheet.create({
     top: 30,
     left: 20,
     position: 'absolute'
+  },
+  takeSnapshot: {
+    backgroundColor: '#FF3366',
+    borderColor: '#FF3366',
+    
+  },
+  uploadSelfieImage: {
+    flex: 1,
+  },
+  avatar: {
+  
+    borderRadius: 150,
+    width: 300,
+    height: 300
   }
 })
 /**
@@ -102,14 +130,76 @@ I18n.translations = Translations
  * ## App class
  */
 class UploadSelfie extends Component {
+  state = {
+    avatarSource: null
+  };
 
+
+  takeSnapshot = () => {
+    /**
+     * The first arg is the options object for customization (it can also be null or omitted for default options),
+     * The second arg is the callback which sends object: response (more info below in README)
+     */
+    const options = {
+          quality: 1.0,
+          maxWidth: 500,
+          maxHeight: 500,
+          storageOptions: {
+            skipBackup: true
+          }
+        };
+
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response = ', response);
+
+      if (response.didCancel) {
+        console.log('User cancelled photo picker');
+      }
+      else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      }
+      else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+      }
+      else {
+        var source;
+
+        // You can display the image using either:
+        //source = {uri: 'data:image/jpeg;base64,' + response.data, isStatic: true};
+
+        //Or:
+        if (Platform.OS === 'android') {
+          source = {uri: response.uri, isStatic: true};
+        } else {
+          source = {uri: response.uri.replace('file://', ''), isStatic: true};
+        }
+
+        this.setState({
+          avatarSource: source
+        });
+      }
+    });
+  };
   render () {
     return (
       <View style={styles.container}>
+          
+          { !this.state.avatarSource &&
+             <Image style={styles.uploadSelfieImage} source={require('../images/takeSelfie.png')} />
+          }
+          { this.state.avatarSource &&
+             <Image style={styles.avatar} source={this.state.avatarSource} />
+          }
           <Button style={styles.button} onPress={this.props.actions.openMenu}>
              Open Menu
           </Button>
-          <Text> Upload Selfie </Text>
+          <Button style={styles.takeSnapshot} onPress={this.takeSnapshot.bind(this)}>
+             Take Snapshot
+          </Button>
+          { this.state.avatarSource &&
+            <Text style={{margin: 8, textAlign: 'center'}}>{this.state.avatarSource.uri}</Text>
+          }
+
       </View>
     )
   }
