@@ -12,22 +12,21 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Drawer from 'react-native-drawer'
+
 /**
  * The actions we need
  */
 import * as authActions from '../reducers/auth/authActions'
 import * as globalActions from '../reducers/global/globalActions'
-import {DefaultRenderer} from 'react-native-router-flux';
+import Cards from '../components/Cards';
 /**
  * Router
  */
 import {Actions} from 'react-native-router-flux'
 
-/**
- * The Header will display a Image and support Hot Loading
- */
-import Header from '../components/Header'
+ 
 import ControlPanel from '../components/ControlPanel'
+
 /**
  * The components needed from React
  */
@@ -59,8 +58,7 @@ function mapStateToProps (state) {
     },
     global: {
       currentState: state.global.currentState,
-      showState: state.global.showState,
-      menuOpen: state.global.menuOpen
+      showState: state.global.showState
     }
   }
 };
@@ -75,10 +73,8 @@ function mapDispatchToProps (dispatch) {
 }
 
 var styles = StyleSheet.create({
+
   container: {
-    backgroundColor: 'white',
-    height: undefined,
-    width: undefined,
     flexDirection: 'column',
     flex: 1
   },
@@ -90,8 +86,9 @@ var styles = StyleSheet.create({
   button: {
     backgroundColor: '#FF3366',
     borderColor: '#FF3366',
-    marginLeft: 10,
-    marginRight: 10
+    top: 30,
+    left: 20,
+    position: 'absolute'
   }
 })
 /**
@@ -104,39 +101,16 @@ I18n.translations = Translations
 /**
  * ## App class
  */
-class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {open: true};
-
-    // Toggle the state every second
-    setInterval(() => {
-      this.setState({ open: !this.state.open });
-    }, 100000);
-  }
-
-  closeControlPanel = () => {
-    this.props.actions.closeMenu();
-  };
- 
-
+class Followings extends Component {
 
   render () {
-    const state = this.props.navigationState;
-    const children = state.children;
-    return ( 
-        <Drawer
-          open={this.props.global.menuOpen}
-          type="static"
-          ref={(ref) => this._drawer = ref}  
-          styles={{main: {shadowColor: '#000000', shadowOpacity: 0.3, shadowRadius: 15}}}
-          tweenHandler={Drawer.tweenPresets.parallax}
-          content={
-            <ControlPanel closeDrawer={this.closeControlPanel} />
-          }  
-        >
-          <DefaultRenderer navigationState={children[0]} onNavigate={this.props.onNavigate}/>
-        </Drawer>
+    return (
+      <View style={styles.container}>
+          <Button style={styles.button} onPress={this.props.actions.openMenu}>
+             Open Menu
+          </Button>
+          <Text> Followings </Text>
+      </View>
     )
   }
 };
@@ -144,4 +118,4 @@ class Main extends Component {
 /**
  * Connect the properties
  */
-export default connect(mapStateToProps, mapDispatchToProps)(Main)
+export default connect(mapStateToProps, mapDispatchToProps)(Followings)

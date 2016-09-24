@@ -71,6 +71,8 @@ import Profile from './containers/Profile'
 import Main from './containers/Main'
 import Subview from './containers/Subview'
 import Swipe from './containers/Swipe'
+import UploadSelfie from './containers/UploadSelfie'
+import Followings from './containers/Followings'
 
 /**
  * ### icons
@@ -179,6 +181,10 @@ export default function native (platform) {
                 type={'replace'}
                 >
                   <Scene key="Wrapper">
+                    <Scene key='UploadSelfie'
+                      title={I18n.t('Snowflake.logout')}
+                      hideNavBar
+                      component={UploadSelfie} />
                     <Scene key='Logout'
                       title={I18n.t('Snowflake.logout')}
                       iconName={"sign-out"}
@@ -190,7 +196,6 @@ export default function native (platform) {
                       hideNavBar
                       initial
                       component={App} />
-
                     <Scene key='Swipe'
                       title={'Swipe'}
                       icon={TabIcon}
@@ -198,13 +203,16 @@ export default function native (platform) {
                       hideNavBar
                       component={Swipe} 
                     />
-
                     <Scene key='Profile'
                       title={I18n.t('Snowflake.profile')}
                       icon={TabIcon}
                       iconName={"gear"}
                       hideNavBar
                       component={Profile} />
+                    <Scene key='Followings'
+                      title={I18n.t('Snowflake.profile')}
+                      hideNavBar
+                      component={Followings} />
                   </Scene>
                 </Scene>
           </Router>

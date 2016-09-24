@@ -22,7 +22,10 @@ const {
 
   GET_STATE,
   SET_STATE,
-  SET_STORE
+  SET_STORE,
+
+  OPEN_MENU,
+  CLOSE_MENU
 
 } = require('../../lib/constants').default
 
@@ -41,6 +44,7 @@ export default function globalReducer (state = initialState, action) {
     /**
      * ### Save the sessionToken
      */
+
     case SET_SESSION_TOKEN:
       return state.set('sessionToken', action.payload)
 
@@ -58,6 +62,12 @@ export default function globalReducer (state = initialState, action) {
 
     case SESSION_TOKEN_SUCCESS:
       return state.set('currentUser', action.payload.sessionToken)
+
+    case OPEN_MENU:
+      return state.set('menuOpen', true)
+
+    case CLOSE_MENU:
+      return state.set('menuOpen', false)
 
     /**
      * ### Clear currentUser

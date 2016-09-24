@@ -27,6 +27,8 @@ import {Record} from 'immutable'
  *
  */
 var InitialState = Record({
+  currentPage: null,
+  menuOpen: false,
   currentUser: null,
   showState: false,
   currentState: null,

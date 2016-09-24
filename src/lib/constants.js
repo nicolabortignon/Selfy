@@ -52,6 +52,9 @@ export default keyMirror({
 
   FORGOT_PASSWORD: null,
   LOGIN: null,
-  REGISTER: null
+  REGISTER: null,
+
+  OPEN_MENU: null,
+  CLOSE_MENU: null 
 
 })

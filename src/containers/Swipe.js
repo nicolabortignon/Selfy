@@ -120,25 +120,13 @@ class Swipe extends Component {
 
   render () {
     return (
-       <Drawer
-        type="static"
-        ref={(ref) => this._drawer = ref}
-          closedDrawerOffset={-3}
-          styles={{main: {shadowColor: '#000000', shadowOpacity: 0.1, shadowRadius: 15}}}
-            openDrawerOffset={100}
-            tweenHandler={Drawer.tweenPresets.parallax}
-          content={
-            <ControlPanel closeDrawer={this.closeControlPanel} />
-          }  
-        >
       <View style={styles.container}>
            
           <Cards style={{flex: 1}} />
-          <Button style={styles.button} onPress={this.handlePress.bind(this)}>
+          <Button style={styles.button} onPress={this.props.actions.openMenu}>
              Open Menu
           </Button>
       </View>
-      </Drawer>
     )
   }
 };

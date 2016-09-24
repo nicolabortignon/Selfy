@@ -14,7 +14,9 @@ const {
   SET_SESSION_TOKEN,
   SET_STORE,
   SET_STATE,
-  GET_STATE
+  GET_STATE,
+  OPEN_MENU,
+  CLOSE_MENU
 } = require('../../lib/constants').default
 
 /**
@@ -59,5 +61,18 @@ export function getState (toggle) {
   return {
     type: GET_STATE,
     payload: toggle
+  }
+}
+
+
+export function openMenu () {
+  return {
+    type: OPEN_MENU
+  }
+}
+
+export function closeMenu () {
+  return {
+    type: CLOSE_MENU
   }
 }
