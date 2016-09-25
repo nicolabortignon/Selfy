@@ -138,7 +138,6 @@ class UploadSelfie extends Component {
   takeSnapshot = () => {
     /**
      * The first arg is the options object for customization (it can also be null or omitted for default options),
-     * The second arg is the callback which sends object: response (more info below in README)
      */
     const options = {
           quality: 1.0,
@@ -164,10 +163,9 @@ class UploadSelfie extends Component {
       else {
         var source;
 
-        // You can display the image using either:
-        //source = {uri: 'data:image/jpeg;base64,' + response.data, isStatic: true};
+        
 
-        //Or:
+        // Reference to the platform specific asset location
         if (Platform.OS === 'android') {
           source = {uri: response.uri, isStatic: true};
         } else {
