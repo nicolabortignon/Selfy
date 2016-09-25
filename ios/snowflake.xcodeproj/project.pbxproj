@@ -27,6 +27,8 @@
 		5831F9276B0B4F3E8834529B /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1322AC77C46403CB5D6F353 /* FontAwesome.ttf */; };
 		5C69ADB01D8DD5C700F88704 /* AvenirNext.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C69ADAF1D8DD5C700F88704 /* AvenirNext.ttf */; };
 		5C6E64661D968B530045DA1F /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C6E64651D968AB80045DA1F /* libRNImagePicker.a */; };
+		5C6E64681D97A63E0045DA1F /* AvenirNext-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E64671D97A63E0045DA1F /* AvenirNext-Italic.ttf */; };
+		5C6E64691D97A63E0045DA1F /* AvenirNext-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C6E64671D97A63E0045DA1F /* AvenirNext-Italic.ttf */; };
 		69C576D689E240DEB0789BC8 /* libRNI18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA2328395E04F33968D1603 /* libRNI18n.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		83CB0DAC888843F2AD6221CC /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3CC28823B50A4E9EBA68016B /* Foundation.ttf */; };
@@ -171,6 +173,7 @@
 		3CC28823B50A4E9EBA68016B /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		5C69ADAF1D8DD5C700F88704 /* AvenirNext.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AvenirNext.ttf; path = ../src/lib/AvenirNext.ttf; sourceTree = "<group>"; };
 		5C6E64601D968AB80045DA1F /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
+		5C6E64671D97A63E0045DA1F /* AvenirNext-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "AvenirNext-Italic.ttf"; path = "../src/lib/AvenirNext-Italic.ttf"; sourceTree = "<group>"; };
 		5EA2328395E04F33968D1603 /* libRNI18n.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNI18n.a; sourceTree = "<group>"; };
 		633773ED6F654BBC947F11D8 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -313,6 +316,7 @@
 		1B028B8FCBD9451B87521A0F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5C6E64671D97A63E0045DA1F /* AvenirNext-Italic.ttf */,
 				5C69ADAF1D8DD5C700F88704 /* AvenirNext.ttf */,
 				F1322AC77C46403CB5D6F353 /* FontAwesome.ttf */,
 				3CC28823B50A4E9EBA68016B /* Foundation.ttf */,
@@ -645,6 +649,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C6E64691D97A63E0045DA1F /* AvenirNext-Italic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +661,7 @@
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				5831F9276B0B4F3E8834529B /* FontAwesome.ttf in Resources */,
 				5C69ADB01D8DD5C700F88704 /* AvenirNext.ttf in Resources */,
+				5C6E64681D97A63E0045DA1F /* AvenirNext-Italic.ttf in Resources */,
 				83CB0DAC888843F2AD6221CC /* Foundation.ttf in Resources */,
 				D760CA904B854635A18F4A56 /* Ionicons.ttf in Resources */,
 				166AC0BD27C0446FA6FF8B31 /* Entypo.ttf in Resources */,

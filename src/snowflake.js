@@ -178,7 +178,7 @@ export default function native (platform) {
               <Scene key='Main'
                 component={Main}
                 hideNavBar={true}
-                type={'replace'}
+                
                 >
                   <Scene key="Wrapper">
                     <Scene key='UploadSelfie'
@@ -194,7 +194,7 @@ export default function native (platform) {
                       title={I18n.t('Snowflake.logout')}
                       iconName={"sign-out"}
                       hideNavBar
-                      initial
+                       
                       component={App} />
                     <Scene key='Swipe'
                       title={'Swipe'}
@@ -208,6 +208,7 @@ export default function native (platform) {
                       icon={TabIcon}
                       iconName={"gear"}
                       hideNavBar
+                      initial
                       component={Profile} />
                     <Scene key='Followings'
                       title={I18n.t('Snowflake.profile')}
